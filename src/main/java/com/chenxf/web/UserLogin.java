@@ -14,10 +14,9 @@ public class UserLogin {
 			mv = new ModelAndView("success");
 			mv.addObject("name", username);
 			mv.addObject("password", passwd);
-		} else {
-			mv = new ModelAndView("fail");
+			return mv;
 		}
+		mv = new ModelAndView("redirect:/index.jsp");
 		return mv;
 	}
-
 }
