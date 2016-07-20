@@ -1,27 +1,25 @@
 package com.chenxf.web;
-import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+import org.springframework.web.context.WebApplicationContext;
 
 public class UserLoginTest extends JUnitActionBase {
 	
-	//模拟request，response
-	private MockHttpServletRequest requests;
-	private MockHttpServletResponse response;
-	
-	//注入userLogin
 	@Autowired
-	private UserLogin userLogin;
+	private WebApplicationContext wac;
+	private MockMvc mockMvc;
 	
-	//执行测试方法前初始化模拟request，response
+	//模拟MVC测试环境
 	@Before
 	public void setUp(){
-		requests = new MockHttpServletRequest();
-		requests.setCharacterEncoding("UTF-8");
-		response = new MockHttpServletResponse();
+		mockMvc = webAppContextSetup(wac).build();
 	}
 	
 	/**
@@ -32,8 +30,13 @@ public class UserLoginTest extends JUnitActionBase {
 	 */
 	@Test
 	public void testUserLogin() throws Exception{
-		String username = "陈小峰";
-		String passwd = "1234";
-		assertEquals("success",userLogin.userLogin(username, passwd).getViewName());
+		System.out.println();
+		MvcResult result = mockMvc.perform(get("/login")
+					.param("username", "admin")
+					.param("passwd", "admin"))	//perform执行一个请求
+				.andExpect(view().name("success"))			//andExpect添加断言
+				.andExpect(model().attributeExists("name"))		
+				.andDo(print())								//andDo添加结果处理器
+				.andReturn();		//andReturn表示执行完成后返回相应的结果
 	}
 }
