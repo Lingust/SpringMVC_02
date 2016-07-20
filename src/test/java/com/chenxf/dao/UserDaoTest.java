@@ -16,7 +16,8 @@ public class UserDaoTest extends JUnitDaoBase{
 	@Test
 	public void testUserDao(){
 		List<TUser> list = userDao.getAllUser();
-		
+		TUser user = userDao.getUserByUsername("admin");
 		assertEquals("admin", list.get(0).getUserName());
+		assertEquals("admin", user.getUserName());
 	}
 }

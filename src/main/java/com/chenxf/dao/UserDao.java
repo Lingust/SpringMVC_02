@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 import com.chenxf.domain.TUser;
 
 @Repository
-public class UserDao {
+public class UserDao extends BaseDao<TUser> {
+	private final String GET_USER_BY_USERNAME="from TUser t where t.userName=?";
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -23,12 +24,18 @@ public class UserDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	//查询并返回所有用户
 	@SuppressWarnings("unchecked")
 	public List<TUser> getAllUser(){
-		String hsql = "from TUser t";
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery(hsql);
-		
-		return query.list();
+		return (List<TUser>)loadAll();
+	}
+	
+	//根据用户名查询用户
+	public TUser getUserByUsername(String name){
+		List<TUser> users = (List<TUser>) getHibernateTemplate().find(GET_USER_BY_USERNAME, name);
+		if(users.isEmpty())
+			return null;
+		else
+			return users.get(0);
 	}
 }
