@@ -3,6 +3,7 @@ package com.chenxf.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chenxf.domain.TUser;
@@ -24,5 +25,16 @@ public class UserLogin {
 		}
 		mv = new ModelAndView("redirect:/index.jsp");
 		return mv;
+	}
+	
+	@RequestMapping(value="/checkUsername",method=RequestMethod.GET)
+	public String checkUsername(String username){
+		TUser user = userService.getUserByUserName(username);
+		System.out.println(user.getUserName()+","+username);
+		if(user.getUserName().equals(username)){
+			System.out.println("yes");
+			return "/";
+		}
+		return "false";
 	}
 }
