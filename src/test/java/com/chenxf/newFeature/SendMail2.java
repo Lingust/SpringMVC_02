@@ -72,7 +72,6 @@ public class SendMail2 {
 		
 		//添加附件内容
 		File file = new File("C:\\Users\\Chenxf\\Desktop\\错误代码.java");
-		//File file2 = new File("C:\\Users\\Chenxf\\Desktop\\JiaoDayuan_Peking University_Quantitative Research Analyst.doc");
 		if(file != null){
 			BodyPart attachmentPart = new MimeBodyPart();
 			DataSource source = new FileDataSource(file);

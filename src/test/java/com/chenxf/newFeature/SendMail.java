@@ -16,9 +16,9 @@ import com.sun.mail.util.MailSSLSocketFactory;
 
 public class SendMail {
 	public static void main(String[] args) throws AddressException, MessagingException, GeneralSecurityException {
-		String to = "chenxf333@126.com";
-		String from ="chenxf333@foxmail.com";
-		String password = "shqaruwqzjekdeie";
+		String to = "@126.com";
+		String from ="@foxmail.com";
+		String password = "";
 		
 		/*本地客户端设置*/
 		MailSSLSocketFactory sf = new MailSSLSocketFactory();
