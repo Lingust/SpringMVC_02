@@ -8,6 +8,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration({
 	"classpath*:/applicationContext.xml"
 })
-public class ServiceTestBase {
+public abstract class ServiceTestBase {
 
 }
