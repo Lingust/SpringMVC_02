@@ -30,7 +30,7 @@ public class UserLoginTest extends JUnitActionBase {
 	 */
 	@Test
 	public void testUserLogin() throws Exception{
-		System.out.println();
+		@SuppressWarnings("unused")
 		MvcResult result = mockMvc.perform(get("/login")
 					.param("username", "admin")
 					.param("passwd", "admin"))	//perform执行一个请求
