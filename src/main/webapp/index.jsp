@@ -17,7 +17,6 @@
 				xmlHttp.onreadystatechange = function () {
 					alert(xmlHttp.readyState+","+xmlHttp.status+","+xmlHttp.responseText);
 					if(xmlHttp.readyState==4 && xmlHttp.status==200){
-						alert(xmlHttp.responseText);
 						if(xmlHttp.responseText == "true"){
 							document.getElementById("tip").innerHTML="用户名不可用";
 						} else {
