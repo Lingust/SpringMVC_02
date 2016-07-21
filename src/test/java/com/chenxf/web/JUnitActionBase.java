@@ -27,6 +27,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 })*/
 //添加事务，回滚对数据库的操作
 //@Transactional
-public class JUnitActionBase {
+public abstract class JUnitActionBase {
 
 }

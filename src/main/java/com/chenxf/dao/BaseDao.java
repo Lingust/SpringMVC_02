@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.util.Assert;
 
-public class BaseDao<T> {
+public abstract class BaseDao<T> {
 	//一个待操作的数据表类的对象
 	private Class<T> entityClass;
 	

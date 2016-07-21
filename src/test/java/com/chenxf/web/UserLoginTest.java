@@ -36,7 +36,7 @@ public class UserLoginTest extends JUnitActionBase {
 					.param("passwd", "admin"))	//perform执行一个请求
 				.andExpect(view().name("success"))			//andExpect添加断言
 				.andExpect(model().attributeExists("name"))		
-				.andDo(print())								//andDo添加结果处理器
+				//.andDo(print())								//andDo添加结果处理器
 				.andReturn();		//andReturn表示执行完成后返回相应的结果
 	}
 }
