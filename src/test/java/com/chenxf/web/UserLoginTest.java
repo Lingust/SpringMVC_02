@@ -38,8 +38,9 @@ public class UserLoginTest extends JUnitActionBase {
 				.andExpect(model().attributeExists("name"))		
 				//.andDo(print())								//andDo添加结果处理器
 				.andReturn();		//andReturn表示执行完成后返回相应的结果
-		MvcResult result2 = mockMvc.perform(get("/login?username=admin"))
-				.andExpect(handler().methodName("true"))
+		MvcResult result2 = mockMvc.perform(get("/checkUsername?username=admin"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("true"))
 				.andReturn();
 	}
 }

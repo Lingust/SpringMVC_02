@@ -33,7 +33,6 @@ public class UserLogin {
 	public String checkUsername(String username){
 		TUser user = userService.getUserByUserName(username);
 		if(user!=null && user.getUserName().equals(username)){
-			System.out.println("yes");
 			return "true";
 		} else {
 			return "false";
