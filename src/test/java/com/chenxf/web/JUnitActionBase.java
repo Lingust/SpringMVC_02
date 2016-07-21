@@ -25,7 +25,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 	@ContextConfiguration(name="parent",classes=AppConfig.class),
 	@ContextConfiguration(name="child", classes=MvcConfig.class)
 })*/
-//添加事务，回滚对数据库的操作
+//添加事务，回滚对数据库的操作 
 //@Transactional
 public abstract class JUnitActionBase {
 
