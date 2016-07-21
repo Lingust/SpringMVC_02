@@ -40,7 +40,7 @@ public class SendMail {
 		
 		StringBuilder builder = new StringBuilder();
 		builder.append("这是由Java Mail生成并发送的邮件\n");
-		builder.append("来自陈小峰");
+		builder.append("来自XXX");
 		
 		Message msg = new MimeMessage(session);
 		msg.setSubject("测试邮件1");
