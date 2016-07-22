@@ -41,7 +41,7 @@ public class LoginController extends BaseController {
 			mv.setViewName("success");
 			return mv;
 		}
-		mv.setViewName("forward:/toUrl");
+		mv.setViewName("forward:/");	//注意，返回首页转发方式
 		return mv;
 	}
 	@RequestMapping(value="/toUrl")

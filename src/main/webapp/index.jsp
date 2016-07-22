@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
 		<h2>Welcome to Sign in!</h2>
 		<font id="errorMsg" color="red"><c:out value="${errorMsg }"></c:out></font>
-		<form id="form1" action="login" method="post" onSubmit="return submitForm();">
+		<form id="form1" action="login.html" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" /><span><font id="tip2" color="red"></font></span><p>
 			<input value="登录" type="submit" /><p>

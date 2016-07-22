@@ -15,6 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 Welcome!<br/>
 your name is:<%=name %><br/>
-<a href="<%=basePath %>/logout">用户退出</a>
+<a href="<%=basePath %>/logout.html">用户退出</a>
 </body>
 </html>

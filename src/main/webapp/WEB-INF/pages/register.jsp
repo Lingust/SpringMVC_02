@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 		<h2>Welcome to Sign up!</h2>
-		<form id="form1" action="registUser" method="post" onSubmit="return submitForm();">
+		<form id="form1" action="registUser.html" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" onblur="loadXMLDoc();" onfocus="delData('tip');" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" onblur="checkU('tip2');" onfocus="delData('tip2');"/><span><font id="tip2" color="red"></font></span><p>
 			<input value="注册" type="submit" /><p>
