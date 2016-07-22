@@ -8,6 +8,6 @@
 </head>
 <body>
 Welcome!<br/>
-your name is:${name }<br/>
+your name is:${username }<br/>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.chenxf.web;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +44,12 @@ public class LoginController extends BaseController {
 			mv.setViewName("success");
 		}
 		return mv;
+	}
+	
+	@RequestMapping(value="/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute(CommonConstant.USER_CONTEXT);
+		return "forward:/index.jsp";
 	}
 	
 	@RequestMapping(value="/checkUsername",method=RequestMethod.GET)
