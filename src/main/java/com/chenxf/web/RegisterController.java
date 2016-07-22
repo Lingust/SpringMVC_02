@@ -18,10 +18,15 @@ public class RegisterController extends BaseController {
 	private UserService userService;
 	
 	@RequestMapping("/register")
+	public String register(){
+		return "register";
+	}
+	
+	@RequestMapping("/registUser")
 	public String registerUser(HttpServletRequest request, TUser user){
-		
-		
-		return null;
+		/*设置注册日期，设置IP，最后登录日期等*/
+		userService.insertUser(user);
+		return "forward:/success";
 	}
 	
 	public String registerSuccess(){

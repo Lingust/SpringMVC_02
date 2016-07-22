@@ -20,4 +20,12 @@ public class UserService {
 	public TUser getUserByUserName(String username){
 		return userDao.getUserByUsername(username);
 	}
+	
+	/**
+	 * 新增用户
+	 * @param user
+	 */
+	public void insertUser(TUser user){
+		userDao.save(user);
+	}
 }
