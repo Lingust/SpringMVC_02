@@ -22,11 +22,13 @@ public class RegisterController extends BaseController {
 		return "register";
 	}
 	
-	@RequestMapping("/registUser")
+	//@ResponseBody
+	@RequestMapping(value="/registUser",method=RequestMethod.POST)
 	public String registerUser(HttpServletRequest request, TUser user){
 		/*设置注册日期，设置IP，最后登录日期等*/
 		userService.insertUser(user);
-		return "forward:/success";
+		setSessionUser(request, user);
+		return "success";
 	}
 	
 	public String registerSuccess(){
@@ -35,9 +37,9 @@ public class RegisterController extends BaseController {
 	
 	@RequestMapping(value="/checkUsername",method=RequestMethod.GET)
 	@ResponseBody
-	public String checkUsername(String username){
-		TUser user = userService.getUserByUserName(username);
-		if(user!=null && user.getUserName().equals(username)){
+	public String checkUsername(String userName){
+		TUser user = userService.getUserByUserName(userName);
+		if(user!=null && user.getUserName().equals(userName)){
 			return "true";
 		} else {
 			return "false";

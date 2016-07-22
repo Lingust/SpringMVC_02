@@ -37,9 +37,23 @@ public class UserControllerTest extends JUnitActionBase {
 				.andExpect(model().attributeExists("username"))		
 				//.andDo(print())								//andDo添加结果处理器
 				.andReturn();		//andReturn表示执行完成后返回相应的结果
-		MvcResult result2 = mockMvc.perform(get("/checkUsername?username=admin"))
+		MvcResult result2 = mockMvc.perform(get("/checkUsername?userName=admin"))
 				.andExpect(status().isOk())
 				.andExpect(content().string("true"))
+				.andReturn();
+		MvcResult result3 = mockMvc.perform(get("/checkUsername?userName=adm"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("false"))
+				.andReturn();
+	}
+	
+	//@Test
+	public void testRegisterUser() throws Exception {
+		MvcResult result = mockMvc.perform(post("/registUser")
+					.param("userName", "chenc")
+					.param("passwd", "test"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("forward:/success"))	//在要测试的方法上加@ResponseBody即可测试通过
 				.andReturn();
 	}
 }

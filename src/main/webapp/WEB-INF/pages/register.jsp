@@ -7,7 +7,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<base href="<%=basePath%>">
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<script type="text/javascript">
@@ -29,8 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 					var a = document.getElementById("name").value;
-					xmlHttp.open("GET","checkUsername?username="+a);
-					xmlHttp.send();
+					xmlHttp.open("GET","checkUsername?userName="+a+"&datetime="+new Date().getTime());
+					xmlHttp.send(null);
 				}
 				
 				function trim(s){
@@ -42,9 +41,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					if(trim(name)=="" && element=="tip"){
 						document.getElementById("tip").innerHTML="用户名不能为空";
 						document.getElementById("name").value="";
-						if(element="tip") return true;
+						if(element=="tip") return true;
 					} else {
-						if(element="tip") return false;
+						if(element=="tip") return false;
 					}
 					if(trim(passwd)=="" && element=="tip2"){
 						document.getElementById("tip2").innerHTML="密码不能为空";
@@ -63,15 +62,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				}
 				function submitForm(){
-					var name = document.getElementById(tip).innerHTML;
-					if(name == "用户名已存在") return false;
+					var name = document.getElementById("tip").innerHTML;
+					if(name == "用户名已存在" || name=="") return false;
 					else return true;
 				}
 			</script>
-		<title>用户登录</title>
+		<title>用户注册</title>
 	</head>
 	<body>
-		<h2>Welcome to Login</h2>
+		<h2>Welcome to Sign up!</h2>
 		<form id="form1" action="registUser" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" onblur="loadXMLDoc();" onfocus="delData('tip');" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" onblur="checkU('tip2');" onfocus="delData('tip2');"/><span><font id="tip2" color="red"></font></span><p>

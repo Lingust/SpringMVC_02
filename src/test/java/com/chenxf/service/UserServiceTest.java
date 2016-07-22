@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.chenxf.domain.TUser;
 
 public class UserServiceTest extends ServiceTestBase {

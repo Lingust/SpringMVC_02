@@ -37,10 +37,16 @@ public class LoginController extends BaseController {
 				toUrl = "/index.html";
 			}
 			//mv.setViewName("redirect:"+toUrl);
-			mv.addObject("username", dbUser.getUserName());
+			//mv.addObject("username", dbUser.getUserName());
 			mv.setViewName("success");
+			return mv;
 		}
+		mv.setViewName("forward:/toUrl");
 		return mv;
+	}
+	@RequestMapping(value="/toUrl")
+	public String toIndex(){
+		return "forward:/index.jsp";
 	}
 	
 	@RequestMapping(value="/logout")

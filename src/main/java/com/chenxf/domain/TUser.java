@@ -37,4 +37,7 @@ public class TUser {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+	public String toString(){
+		return userName;
+	}
 }

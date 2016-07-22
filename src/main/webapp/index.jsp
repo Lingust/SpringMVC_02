@@ -8,7 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<base href="<%=basePath%>">
 		<title>登录系统</title>
 		<script type="text/javascript">
 			function trim(s){
@@ -18,6 +17,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function submitForm(){
 				var name = document.getElementById("name").value;
 				var passwd = document.getElementById("pss").value;
+				document.getElementById("tip").innerHTML="";
+				document.getElementById("tip2").innerHTML="";
+				document.getElementById("errorMsg").innerHTML="";
 				if(trim(name)=="" || trim(passwd)==""){
 					if(trim(name)==""){
 						document.getElementById("tip").innerHTML="用户名不能为空";
@@ -35,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	
 	<body>
-		<h2>Welcome to Login</h2>
+		<h2>Welcome to Sign in!</h2>
+		<font id="errorMsg" color="red"><c:out value="${errorMsg }"></c:out></font>
 		<form id="form1" action="login" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" /><span><font id="tip2" color="red"></font></span><p>
