@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chenxf.cons.CommonConstant;
@@ -39,7 +37,6 @@ public class LoginController extends BaseController {
 				toUrl = "/index.html";
 			}
 			//mv.setViewName("redirect:"+toUrl);
-			System.out.println(toUrl);
 			mv.addObject("username", dbUser.getUserName());
 			mv.setViewName("success");
 		}
@@ -52,20 +49,4 @@ public class LoginController extends BaseController {
 		return "forward:/index.jsp";
 	}
 	
-	@RequestMapping(value="/checkUsername",method=RequestMethod.GET)
-	@ResponseBody
-	public String checkUsername(String username){
-		TUser user = userService.getUserByUserName(username);
-		if(user!=null && user.getUserName().equals(username)){
-			return "true";
-		} else {
-			return "false";
-		}
-	}
-	
-	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public ModelAndView userRegister(TUser user){
-		
-		return null;
-	}
 }

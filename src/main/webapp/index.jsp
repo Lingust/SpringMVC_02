@@ -7,7 +7,7 @@
 		<title>登录系统(注册测试)</title>
 		<script type="text/javascript">
 			function loadXMLDoc(){
-				checkU('tip');
+				if(checkU('tip')) return;
 				var xmlHttp;
 				if(window.XMLHttpRequest){
 					xmlHttp = new XMLHttpRequest();
@@ -37,8 +37,9 @@
 				if(trim(name)=="" && element=="tip"){
 					document.getElementById("tip").innerHTML="用户名不能为空";
 					document.getElementById("name").value="";
+					return true;
 				} else {
-					
+					return false;
 				}
 				if(trim(passwd)=="" && element=="tip2"){
 					document.getElementById("tip2").innerHTML="密码不能为空";
@@ -56,15 +57,21 @@
 					document.getElementById("tip2").innerHTML="";
 				}
 			}
+			function submitForm(){
+				var name = document.getElementById(tip).innerHTML;
+				if(name == "用户名可用") return false;
+				else return true;
+			}
 		</script>
 	</head>
 	<body>
 		<h2>Welcome to Login</h2>
-		<form id="form1" action="login" method="post" >
+		<form id="form1" action="login" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" onblur="loadXMLDoc();" onfocus="delData('tip');" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" onblur="checkU('tip2');" onfocus="delData('tip2');"/><span><font id="tip2" color="red"></font></span><p>
-			<input value="提交" type="submit" /><p>
+			<input value="登录" type="submit" /><button type="button" value="注册1" >注册</button><p>
 		</form>
+		
 <%-- 		<form:form action="login">
 			用户名：<form:input path="username"/><p>
 			密  码：<form:password path="passwd"/><p>
