@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>登录系统</title>
+		<title>登录系统(注册测试)</title>
 		<script type="text/javascript">
 			function loadXMLDoc(){
 				checkU('tip');
@@ -15,7 +15,6 @@
 					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
 				}
 				xmlHttp.onreadystatechange = function () {
-					alert(xmlHttp.readyState+","+xmlHttp.status+","+xmlHttp.responseText);
 					if(xmlHttp.readyState==4 && xmlHttp.status==200){
 						if(xmlHttp.responseText == "true"){
 							document.getElementById("tip").innerHTML="用户名不可用";

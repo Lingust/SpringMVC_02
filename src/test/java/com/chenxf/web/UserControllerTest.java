@@ -5,12 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import org.springframework.web.context.WebApplicationContext;
 
-public class UserLoginTest extends JUnitActionBase {
+public class UserControllerTest extends JUnitActionBase {
 	
 	@Autowired
 	private WebApplicationContext wac;
@@ -31,15 +30,16 @@ public class UserLoginTest extends JUnitActionBase {
 	@Test
 	public void testUserLogin() throws Exception{
 		@SuppressWarnings("unused")
-		MvcResult result = mockMvc.perform(get("/login?username=admin&passwd=admin"))
+		MvcResult result = mockMvc.perform(get("/login?userName=admin&passwd=admin"))
 					//.param("username", "admin")
 					//.param("passwd", "admin"))	//perform执行一个请求
 				.andExpect(view().name("success"))			//andExpect添加断言
-				.andExpect(model().attributeExists("name"))		
+				.andExpect(model().attributeExists("username"))		
 				//.andDo(print())								//andDo添加结果处理器
 				.andReturn();		//andReturn表示执行完成后返回相应的结果
-		MvcResult result2 = mockMvc.perform(get("/login?username=admin"))
-				.andExpect(handler().methodName("true"))
+		MvcResult result2 = mockMvc.perform(get("/checkUsername?username=admin"))
+				.andExpect(status().isOk())
+				.andExpect(content().string("true"))
 				.andReturn();
 	}
 }
