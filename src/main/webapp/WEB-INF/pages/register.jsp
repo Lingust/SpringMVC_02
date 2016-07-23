@@ -62,8 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				}
 				function submitForm(){
+					checkU("tip2");	//此处必须加，虽然onblur先执行，但可能未执行完就得到了pass值为空
 					var name = document.getElementById("tip").innerHTML;
-					if(name == "用户名已存在" || name=="") return false;
+					var pass = document.getElementById("tip2").innerHTML;
+					if(name!= "用户名可用" || pass!="") return false;
 					else return true;
 				}
 			</script>
