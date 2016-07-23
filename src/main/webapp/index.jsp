@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div>
 		<img src="<%=basePath%>/download.jpg">下载测试
 		</div>
-<%-- 		<form:form action="login">
+<%-- 	<form:form action="login">
 			用户名：<form:input path="username"/><p>
 			密  码：<form:password path="passwd"/><p>
 			<input type="submit" value="提交"><p>
