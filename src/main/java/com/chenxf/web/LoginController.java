@@ -1,12 +1,19 @@
 package com.chenxf.web;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.chenxf.cons.CommonConstant;
@@ -53,6 +60,16 @@ public class LoginController extends BaseController {
 	public String logout(HttpSession session){
 		session.removeAttribute(CommonConstant.USER_CONTEXT);
 		return "forward:/index.jsp";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/download")
+	public byte[] hadnle333() throws IOException{
+		File file = new File("C:\\Users\\Chenxf\\Desktop\\5f387fec54e736d122233ae39c504fc2d46269db.jpg");
+		//Resource res = new FileSystemResource(file);
+		//byte[] fileData = FileCopyUtils.copyToByteArray(res.getInputStream());
+		byte[] fileData = FileCopyUtils.copyToByteArray(file);
+		return fileData;
 	}
 	
 }
