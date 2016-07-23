@@ -6,7 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html> 
 	<head>
 		<title>登录系统</title>
 		<script type="text/javascript">
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			用户名：<input id="name" name="userName" type="text" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" /><span><font id="tip2" color="red"></font></span><p>
 			<input value="登录" type="submit" /><p>
-			没有用户名？去<a href="<%=basePath%>/register">注册</a>
+			没有用户名？去<a href="<%=basePath%>/register.html">注册</a>
 		</form>
 		<div>
 		<img src="<%=basePath%>/download.jpg">下载测试

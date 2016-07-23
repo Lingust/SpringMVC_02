@@ -31,7 +31,7 @@
   	<servlet-name>MVC</servlet-name>
   	<url-pattern>*.jpg</url-pattern>
   </servlet-mapping>
-  
+   
   <!-- 字符集过滤 -->
     <filter>
   	<filter-name>encodingFilter</filter-name>

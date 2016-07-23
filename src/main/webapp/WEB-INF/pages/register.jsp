@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 					var a = document.getElementById("name").value;
-					xmlHttp.open("GET","checkUsername?userName="+a+"&datetime="+new Date().getTime());
+					xmlHttp.open("GET","checkUsername.html?userName="+a+"&datetime="+new Date().getTime());
 					xmlHttp.send(null);
 				}
 				
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</script>
 		<title>用户注册</title>
 	</head>
-	<body>
+	<body> 
 		<h2>Welcome to Sign up!</h2>
 		<form id="form1" action="registUser.html" method="post" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" onblur="loadXMLDoc();" onfocus="delData('tip');" /><span><font id="tip" color="red"></font></span><p>
