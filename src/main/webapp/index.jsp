@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			没有用户名？去<a href="<%=basePath%>/register">注册</a>
 		</form>
 		<div>
-		<img src="<%=basePath%>/download.html">下载测试
+		<img src="<%=basePath%>/download.jpg">下载测试
 		</div>
 <%-- 		<form:form action="login">
 			用户名：<form:input path="username"/><p>

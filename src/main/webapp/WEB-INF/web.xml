@@ -27,6 +27,10 @@
   	<servlet-name>MVC</servlet-name>
   	<url-pattern>*.html</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MVC</servlet-name>
+  	<url-pattern>*.jpg</url-pattern>
+  </servlet-mapping>
   
   <!-- 字符集过滤 -->
     <filter>
