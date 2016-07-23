@@ -60,7 +60,7 @@ public class LoginController extends BaseController {
 	public String logout(HttpSession session){
 		session.removeAttribute(CommonConstant.USER_CONTEXT);
 		return "forward:/index.jsp";
-	}
+	} 
 	
 	@ResponseBody
 	@RequestMapping(value="/download")
