@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,8 +26,10 @@ public class LoginController extends BaseController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView userLogin(HttpServletRequest request, TUser user){
+		System.out.println(request.getAttribute("userName"));
+		System.out.println(user.getUserName());
 		TUser dbUser = userService.getUserByUserName(user.getUserName());
 		ModelAndView mv = new ModelAndView();
 		if(dbUser == null){
@@ -65,7 +68,7 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	@RequestMapping(value="/download")
 	public byte[] hadnle333() throws IOException{
-		File file = new File("C:\\Users\\Chenxf\\Desktop\\5f387fec54e736d122233ae39c504fc2d46269db.jpg");
+		File file = new File("");
 		//Resource res = new FileSystemResource(file);
 		//byte[] fileData = FileCopyUtils.copyToByteArray(res.getInputStream());
 		byte[] fileData = FileCopyUtils.copyToByteArray(file);

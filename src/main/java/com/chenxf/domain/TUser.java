@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="t_user")
@@ -14,9 +17,11 @@ public class TUser {
 	private int userId;
 	
 	@Column(name="user_name")
+	@Length(min=4,max=10)
 	private String userName;
 	
 	@Column (name="passwd")
+	@Pattern(regexp="\\w{6,18}")
 	private String passwd;
 	
 	public int getUserId() {

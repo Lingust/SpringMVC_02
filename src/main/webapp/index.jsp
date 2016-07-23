@@ -39,14 +39,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
 		<h2>Welcome to Sign in!</h2>
 		<font id="errorMsg" color="red"><c:out value="${errorMsg }"></c:out></font>
-		<form id="form1" action="login.html" method="post" onSubmit="return submitForm();">
+		<form id="form1" action="login.html" method="get" onSubmit="return submitForm();">
 			用户名：<input id="name" name="userName" type="text" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" /><span><font id="tip2" color="red"></font></span><p>
 			<input value="登录" type="submit" /><p>
 			没有用户名？去<a href="<%=basePath%>/register.html">注册</a>
 		</form>
 		<div>
-		<img src="<%=basePath%>/download.jpg">下载测试
+		<!--  img src="<%=basePath%>/download.jpg"-->
 		</div>
 <%-- 	<form:form action="login">
 			用户名：<form:input path="username"/><p>

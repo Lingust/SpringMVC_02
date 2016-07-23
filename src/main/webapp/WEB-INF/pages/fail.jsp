@@ -9,9 +9,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath%>">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录失败页面</title>
+<title>注册失败页面</title>
 </head>
 <body>
-
+	注册失败了
 </body>
 </html>

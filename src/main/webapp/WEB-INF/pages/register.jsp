@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
@@ -28,7 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 					var a = document.getElementById("name").value;
-					xmlHttp.open("GET","checkUsername.html?userName="+a+"&datetime="+new Date().getTime());
+					alert(new Date().getTime());
+					xmlHttp.open("GET","checkUsername/"+a+"?date="+new Date(),true);
 					xmlHttp.send(null);
 				}
 				
@@ -77,6 +80,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			用户名：<input id="name" name="userName" type="text" onblur="loadXMLDoc();" onfocus="delData('tip');" /><span><font id="tip" color="red"></font></span><p>
 			密码：<input id="pss" name="passwd" type="password" onblur="checkU('tip2');" onfocus="delData('tip2');"/><span><font id="tip2" color="red"></font></span><p>
 			<input value="注册" type="submit" /><p>
-		</form>
+		</form><p>
+		
+		<%-- <form:form modelAttribute="user" action="registUser.html" method="post">
+			<table>
+				<tr><td>用户名:</td>
+				<td><form:input path="userName" /></td>
+				</tr>
+				<tr><td>密  码:</td>
+				<td><form:password path="passwd" /></td>
+				</tr>
+				<tr>
+				<td><input type="submit" name="提交" /></td>
+				</tr>
+			</table>
+		</form:form> --%>
+		
 	</body>
 </html>
