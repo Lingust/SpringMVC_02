@@ -28,8 +28,6 @@ public class LoginController extends BaseController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView userLogin(HttpServletRequest request, TUser user){
-		System.out.println(request.getAttribute("userName"));
-		System.out.println(user.getUserName());
 		TUser dbUser = userService.getUserByUserName(user.getUserName());
 		ModelAndView mv = new ModelAndView();
 		if(dbUser == null){
