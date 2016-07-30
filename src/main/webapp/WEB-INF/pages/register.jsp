@@ -30,7 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}
 					}
 					var a = document.getElementById("name").value;
-					alert(new Date().getTime());
 					xmlHttp.open("GET","checkUsername/"+a+"?date="+new Date(),true);
 					xmlHttp.send(null);
 				}

@@ -21,7 +21,7 @@ public class UserDaoTest extends JUnitDaoBase{
 		assertEquals("admin", user.getUserName());
 	}
 	
-	@Test
+	//@Test
 	public void testInsertUser(){
 		TUser user = new TUser();
 		user.setUserName("chen");
